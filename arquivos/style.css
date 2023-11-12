@@ -6,15 +6,24 @@
 :root{
     --font-principal: 'Poppins', sans-serif;
 }
-body{
-    background-color: black;
-}
-#TopoSection{
-    height: 100vh;
-    background-image: url('imagens/backgroundDesktop.png');
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1; /* Coloca o pseudo-elemento atrás dos outros elementos */
+    background-image: url('imagens/zyro-image.png');
     background-size: 100%;
     background-position: bottom center;
     background-attachment: fixed;
+    filter: brightness(0.7);
+}
+#TopoSection{
+    height: 100vh;
+    padding-top: 55vh;
+    width: 100%;
 }
 header{
     position: absolute;
@@ -62,7 +71,7 @@ header{
 }
 .barra1-1{
     transition: 0.5s;
-    width: 40px;
+    width: 30px;
     height: 5px;
     background-color: white;
     border-radius: 5px;
@@ -70,7 +79,7 @@ header{
 }
 .barra1-2{
     transition: 0.5s;
-    width: 40px;
+    width: 30px;
     height: 5px;
     background-color: white;
     border-radius: 5px;
@@ -80,7 +89,7 @@ header{
 }
 .barra2-1{
     transition: 0.5s;
-    width: 40px;
+    width: 30px;
     height: 5px;
     background-color: white;
     border-radius: 5px;
@@ -88,7 +97,7 @@ header{
 }
 .barra2-2{
     transition: 0.5s;
-    width: 40px;
+    width: 30px;
     height: 5px;
     background-color: white;
     border-radius: 5px;
@@ -127,30 +136,6 @@ header{
 .BttNavegação:hover{
     color: rgb(218, 218, 218);
 }
-#marcadores{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    width: 20px;
-    height: 50px;
-    position: fixed;
-    top: 50vh;
-}
-.marcador1-1, .marcador2-1, .marcador3-1{
-    width: 10px;
-    height: 10px;
-    border-radius: 100%;
-    background-color: white;
-    box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.082);
-}
-.marcador1-2, .marcador2-2, .marcador3-2{
-    width: 10px;
-    height: 10px;
-    border-radius: 100%;
-    background-color: rgb(218, 218, 218);
-    box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.082);
-}
 #link{
     display: flex;
     flex-direction: row;
@@ -161,21 +146,189 @@ header{
 .ImagemLink{
     height: 30px;
 }
+.ImagemLink:hover{
+    filter: brightness(0.8);
+}
+#cartazFilme{
+    width: 70%;
+    color: white;
+    font-family: var(--font-principal);
+    margin: auto;
+}
+#Descrição{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+#DescriFilme{
+    width: 50%;
+}
+#titleFilme{
+    font-size: 15pt;
+}
+#sinopse{
+    margin-top: 20px;
+    font-size: 12pt;
+    color: rgb(190, 190, 190);
+}
+.TitleAutor{
+    margin-top: 20px;
+    font-size: 12pt;
+}
+.DescriAutor{
+    margin-top: 5px;
+    font-size: 10pt;
+    color: rgb(190, 190, 190);
+}
 
 #AbaComplemento{
-    box-shadow: 0px 5px 50px 50px rgb(0, 0, 0);
-    background-image: url('imagens/ImagemBackgroundMobile.png');
     background-position: top right;
     background-size: 30%;
     background-repeat: no-repeat;
+    margin-bottom: 100px;
 }
 #Trailer{
-    background-color: green;
     width: 80%;
     margin: auto;
-    margin-top: 80px;
-    height: 380px;
+    margin-top: -20px;
+    height: 500px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    margin-bottom: 200px;
+}
+.TitleSecund{
+    color: white;
+    font-family: var(--font-principal);
+    font-size: 15pt;
+    font-weight: 400;
+    margin-top: 40px;
+}
+
+#videoTrailer{
+    width: 600px;
+    height: 360px;
+    border-radius: 20px;
+}
+#containerElenco{
+    margin-top: 100px;
+    height: max-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#BoxAtores{
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: 150px 150px 150px 150px;
+    gap: 20px;
+    height: 230px;
+    overflow: hidden;
+}
+.NameAtor{
+    color: white;
+    font-size: 12pt;
+    font-family: var(--font-principal);
+}
+.Pesonagem{
+    color: rgb(185, 185, 185);
+    font-family: var(--font-principal);
+    font-size: 12pt;
+}
+#botãoAba{
+    position: relative;
+    top: 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+}
+.Linha{
+    background-color: white;
+    height: 2px;
+    width: 30%;
+}
+#RevelarElenco{
+    background-color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 20px;
+    color: rgb(43, 43, 43);
+    font-size: 10pt;
+    font-family: var(--font-principal);
+    font-weight: 700;
+    cursor: pointer;
+}
+
+/*responsividade*/
+@media (max-width: 720px){
+    #marcadores{
+        display: none;
+    }
+    #cartazFilme{
+        width: 100%;
+    }
+    #Descrição{
+        width: 100%;
+        justify-content: space-evenly;
+    }
+    .navegação2{
+        flex-direction: column;
+        justify-content: space-evenly;
+        height: 300px;
+        width: 100px;
+        top: 90px;
+        left: 50px;
+        z-index: 10000;
+    }
+    body{
+        background-size: 150%;
+    }
+    #videoTrailer{
+        width: 400px;
+    }
+    #BoxAtores{
+        grid-template-columns: 150px 150px;
+    }
+}
+@media (max-width: 650px){
+    header{
+        right: 30px;
+        width: 80px;
+    }
+    .ImagemLink{
+        width: 20px;
+        height: 25px;
+    }
+}
+@media (max-width: 500px){
+    #cartazFilme{
+        width: 80%;
+    }
+    #Descrição{
+        width: 100%;
+        flex-direction: column;
+        align-items: start;
+    }
+    #DescriFilme{
+        width: 100%;
+    }
+    body{
+        background-size: 220%;
+    }
+}
+@media (max-width: 470px){
+    #Trailer{
+        height: 300px;
+        margin-top: -200px;
+    }
+    #videoTrailer{
+        width: 300px;
+        height: 200px;
+        margin-top: 10px;
+    }
 }
