@@ -3,6 +3,10 @@ var barra1Menu = document.querySelector('#barra1Menu')
 var barra2Menu = document.querySelector('#barra2Menu')
 var BarraNavegação = document.querySelector('#navegação')
 
+document.addEventListener("DOMContentLoaded", function() {
+    document.body.style.display = "block";
+})
+
 function abrirMenu(){
     barra1Menu.classList.toggle('barra1-2')
     barra2Menu.classList.toggle('barra2-2')

@@ -6,6 +6,9 @@
 :root{
     --font-principal: 'Poppins', sans-serif;
 }
+body{
+    display: none;
+}
 body::before {
     content: '';
     position: fixed;
