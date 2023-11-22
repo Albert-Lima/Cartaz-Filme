@@ -269,6 +269,13 @@ header{
 
 /*responsividade*/
 @media (max-width: 720px){
+    body{
+        background-color: black;
+    }
+    body::before{
+        background-image: url('imagens/BackgroundPequenaIT.png');
+        background-size: 150%;
+    }
     #marcadores{
         display: none;
     }
