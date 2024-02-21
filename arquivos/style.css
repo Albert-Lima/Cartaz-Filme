@@ -24,8 +24,8 @@ body::before {
     filter: brightness(0.7);
 }
 #TopoSection{
-    height: 100vh;
-    padding-top: 55vh;
+    height: max-content;
+    padding-top: 15vh;
     width: 100%;
 }
 header{
@@ -153,10 +153,27 @@ header{
     filter: brightness(0.8);
 }
 #cartazFilme{
-    width: 70%;
     color: white;
     font-family: var(--font-principal);
-    margin: auto;
+    display: grid;
+    grid-template-columns: 80% 20%;
+    grid-template-rows: max-content;
+}
+#CardVideo{
+    display: flex;
+    flex-direction: column;
+    margin-left: 140px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 30px;
+}
+#videoTrailer{
+    width: 500px;
+    height: 280px;
+    border-radius: 20px;
+    box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.474);
+    cursor: pointer;
 }
 #Descrição{
     width: 100%;
@@ -176,6 +193,13 @@ header{
     font-size: 12pt;
     color: rgb(190, 190, 190);
 }
+#Autores{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    gap: 30px;
+}
 .TitleAutor{
     margin-top: 20px;
     font-size: 12pt;
@@ -185,23 +209,6 @@ header{
     font-size: 10pt;
     color: rgb(190, 190, 190);
 }
-
-#AbaComplemento{
-    background-position: top right;
-    background-size: 30%;
-    background-repeat: no-repeat;
-    margin-bottom: 100px;
-}
-#Trailer{
-    width: 80%;
-    margin: auto;
-    margin-top: -20px;
-    height: 500px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    margin-bottom: 200px;
-}
 .TitleSecund{
     color: white;
     font-family: var(--font-principal);
@@ -209,22 +216,16 @@ header{
     font-weight: 400;
     margin-top: 40px;
 }
-
-#videoTrailer{
-    width: 600px;
-    height: 360px;
-    border-radius: 20px;
-}
 #containerElenco{
-    margin-top: 100px;
+    margin-top: 10px;
     height: max-content;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-#BoxAtores{
-    margin-top: 50px;
+.box1{
     display: grid;
+    flex-direction: row;
     grid-template-columns: 150px 150px 150px 150px;
     gap: 20px;
     height: 230px;
@@ -244,6 +245,7 @@ header{
     position: relative;
     top: 20px;
     width: 100%;
+    height: 150px;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -268,6 +270,32 @@ header{
 }
 
 /*responsividade*/
+@media (max-width: 936px){
+    #cartazFilme{
+        margin: auto;
+        display: grid;
+        grid-template-columns: 100%;
+        grid-template-rows: max-content;
+    }
+    #CardVideo{
+        margin-left: calc(50% - 250px);
+    }
+    #videoTrailer{
+        width: 500px;
+        height: 280px;
+        border-radius: 20px;
+        box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.474);
+        cursor: pointer;
+    }
+    #Autores{
+        width: 100%;
+        margin-top: 20px;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 30px;
+    }
+}
 @media (max-width: 720px){
     body{
         background-color: black;
@@ -278,9 +306,6 @@ header{
     }
     #marcadores{
         display: none;
-    }
-    #cartazFilme{
-        width: 100%;
     }
     #Descrição{
         width: 100%;
@@ -299,7 +324,7 @@ header{
         background-size: 150%;
     }
     #videoTrailer{
-        width: 400px;
+        width: 500px;
     }
     #BoxAtores{
         grid-template-columns: 150px 150px;
@@ -313,6 +338,32 @@ header{
     .ImagemLink{
         width: 20px;
         height: 25px;
+    }
+}
+@media (max-width: 580px){
+    #cartazFilme{
+        margin: auto;
+        display: grid;
+        grid-template-columns: 100%;
+        grid-template-rows: max-content;
+    }
+    #CardVideo{
+        margin-left: calc(50% - 200px);
+    }
+    #videoTrailer{
+        width: 400px;
+        height: 280px;
+        border-radius: 20px;
+        box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.474);
+        cursor: pointer;
+    }
+    #Autores{
+        width: 100%;
+        margin-top: 20px;
+        flex-direction: column;
+        align-items: start;
+        margin-left: calc(50% - 200px);
+        justify-content: center;
     }
 }
 @media (max-width: 500px){
@@ -332,13 +383,26 @@ header{
     }
 }
 @media (max-width: 470px){
-    #Trailer{
-        height: 300px;
-        margin-top: -200px;
-    }
     #videoTrailer{
         width: 300px;
         height: 200px;
         margin-top: 10px;
+    }
+    #cartazFilme{
+        margin: auto;
+        display: grid;
+        grid-template-columns: 100%;
+        grid-template-rows: max-content;
+    }
+    #CardVideo{
+        margin-left: 0px;
+    }
+    #Autores{
+        width: 100%;
+        margin-top: 20px;
+        flex-direction: column;
+        align-items: start;
+        margin-left: 0px;
+        justify-content: center;
     }
 }

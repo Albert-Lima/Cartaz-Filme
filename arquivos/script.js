@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", function() {
     document.body.style.display = "block";
 })
 
+//ANIMAÇÃO BOTÃO DE MENU
 function abrirMenu(){
     barra1Menu.classList.toggle('barra1-2')
     barra2Menu.classList.toggle('barra2-2')
@@ -27,7 +28,9 @@ var bttTrailer = document.querySelector('#bttTrailer')
 var Trailer = document.querySelector('#Trailer')
 var BoxAtores = document.querySelector('#BoxAtores')
 var BttMostrarElenco = document.querySelector('#RevelarElenco')
+var botãoAba = document.querySelector('#botãoAba')
 
+//FUNÇÃO DE SCROLL 
 function ScrollElenco(){
     var ElencoRect = elenco.getBoundingClientRect()
     let centery = ElencoRect.top + ElencoRect.height / 2 - window.innerHeight/2
@@ -38,27 +41,18 @@ function ScrollElenco(){
 }
 bttElenco.addEventListener('click', ScrollElenco)
 
-function ScrollTrailer(){
-    var TrailerRect = Trailer.getBoundingClientRect()
-    let centerY = TrailerRect.top + TrailerRect.height/ 2 - window.innerHeight/2
-    window.scrollTo({
-        top: centerY + window.scrollY,
-        behavior: 'smooth'
-    })
-}
-bttTrailer.addEventListener('click', ScrollTrailer)
 
-
+//ANIMAÇÃO DO CONTAINER ELENCO
 function MostrarElenco(){
+    BttMostrarElenco.innerHTML = 'Mostrar menos'
     BoxAtores.style.height = 'max-content'
-    BttMostrarElenco.innerHTML = 'Mostrar Menos'
-    BttMostrarElenco.removeEventListener('click', MostrarElenco)
     BttMostrarElenco.addEventListener('click', EsconderElenco)
+    BttMostrarElenco.removeEventListener('click', MostrarElenco)
     function EsconderElenco(){
-        BoxAtores.removeAttribute('style')
-        BttMostrarElenco.removeAttribute('style')
-        BttMostrarElenco.addEventListener('click', MostrarElenco)
         BttMostrarElenco.removeEventListener('click', EsconderElenco)
+        BttMostrarElenco.innerHTML = 'Mostrar mais'
+        BoxAtores.removeAttribute('style')
+        BttMostrarElenco.addEventListener('click', MostrarElenco)
     }
 }
 BttMostrarElenco.addEventListener('click', MostrarElenco)
